@@ -62,7 +62,7 @@ class authController{
       res.json(users)
     }catch(e){
       console.log(e)
-      res.status(400).json({message:"Login error"})
+      res.status(400).json({message:"Нету доступа"})
     }
   }
 }
