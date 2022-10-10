@@ -4,5 +4,6 @@ module.exports = {
   country: require('./country.controller'),
   decade: require('./decade.controller'),
   producer: require('./producer.controller'),
-  rating: require('./rating.controller')
+  rating: require('./rating.controller'),
+  auth: require('./auth.controller'),
 }

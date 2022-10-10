@@ -1,15 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const authRouter = require('./authRouter.js')
 const bodyParser = require('body-parser')
-const http = require('http')
+const cors = require('cors')
 const PORT = process.env.PORT || 5000
-const {routes} = require('./Router/index')
+const {routes} = require('./Router/index.js')
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use('/auth', authRouter)
 
 routes.forEach((item) => {
   app.use(`/api/v1/${item}`, require(`./Router/${item}`));

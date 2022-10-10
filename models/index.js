@@ -4,6 +4,9 @@ const Country = require("./Country");
 const Decade = require("./Decade");
 const Producer = require("./Producer");
 const Rating = require("./Rating");
+const User = require('./User')
+const Token = require('./Token')
+
 
 
 module.exports = {
@@ -13,4 +16,6 @@ module.exports = {
   Decade,
   Producer,
   Rating,
+  User,
+  Token
 };

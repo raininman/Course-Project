@@ -5,6 +5,7 @@ module.exports={
     'country',
     'category',
     'producer',
-    'rating'
+    'rating',
+    "auth"
   ]
 }

@@ -1,10 +1,4 @@
-const {
-  model,
-  Schema,
-  Schema: {
-    Types: { ObjectId },
-  },
-} = require("mongoose");
+const {Schema, model} = require('mongoose')
 
 
 const Rating = new Schema({
