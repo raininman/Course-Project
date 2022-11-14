@@ -1,0 +1,39 @@
+
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+:root{
+  --satoshi:'Satoshi', sans-serif;
+  --exo2:'Exo 2', sans-serif;
+  --primary:#2A254B;
+  --gray: #726E8D;
+  --lightGray:#5B5676;
+
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+img{
+  max-width: 100%;
+}
+
+
+body{
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: 'Satoshi', sans-serif;
+  // font-family: 'Clash Display', sans-serif;
+  // font-family: 'Playfair Display', serif;    Кириллица
+  // font-family: 'Exo 2', sans-serif;
+}
+
+.container{
+  max-width: 1440px;
+  margin: auto;
+}

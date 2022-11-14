@@ -2,20 +2,20 @@
   <header class="header">
     <div class="header_top">
       <div class="header_top_left"></div>
-      <a href="#" class="header_logo">Seb's</a>
+      <router-link to="/" class="header_logo">Seb's</router-link>
       <div class="header_top_right">
-        <a href="#" class="header_top_right__user">
+        <router-link to="/user" class="header_top_right__user">
           <img src="/svg/user_header.svg" alt="user icon">
-        </a>
+        </router-link>
       </div>
     </div>
     <div class="header_menu">
-      <a class="header_menu__link"
-      :href="element.path"
+      <router-link class="header_menu__link"
+      :to="element.path"
       v-for="(element,i) of menu"
       :key="i">
       {{element.name}}
-      </a>
+      </router-link>
     </div>
   </header>
 </template>
@@ -57,7 +57,7 @@
     margin: 0 28px;
   }
   &_logo{
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--satoshi);
     color: #22202E;
     font-weight: 400;
     font-size: 24px;
@@ -76,7 +76,7 @@
       margin:0 22px;
       font-weight: 400;
       font-size: 16px;
-      color: #726E8D;
+      color: var(--gray);
       text-decoration: none;
         &:hover{
           text-decoration: underline;

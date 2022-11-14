@@ -1,9 +1,9 @@
 <template>
   <div class="film">
-    <a href="">
+    <router-link to="/">
       <img :src="img" :alt="title" class="film_img">
-    </a>
-    <a href="" class="film_title">{{title}}</a>
+    </router-link>
+    <router-link to="/" class="film_title">{{title}}</router-link>
     <span class="film_year">{{year}}</span>
   </div>
 </template>
@@ -27,7 +27,7 @@ const  props = defineProps({
 
 <style lang="scss" scoped>
 .film{
-  font-family: 'Exo 2', sans-serif;
+  font-family: var(--exo2);
   &_img{
     display: block;
     height: 450px;
@@ -38,7 +38,7 @@ const  props = defineProps({
     display: block;
     font-weight: 400;
     font-size: 20px;
-    color: #2A254B;
+    color: var(--primary);
     text-decoration: none;
     line-height: 140%;
     &:hover{
@@ -49,7 +49,7 @@ const  props = defineProps({
       font-weight: 400;
       font-size: 18px;
       line-height: 150%;
-      color: #2A254B;
+      color: var(--primary);
     }
   }
 }

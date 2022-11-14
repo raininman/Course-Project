@@ -6,11 +6,20 @@
         <span class="hero_info__description">― Ingmar Bergman</span>
       </div>
       <div class="hero_info_link">
-        <a href="https://github.com/raininman" class="hero_info_link" target="_blank">Github</a>
+        <!-- <uiButton type="link" to="/">
+          Github
+        </uiButton> -->
+        <a href="https://github.com/raininman/Course-Project" class="hero_info_link" target="_blank">Github</a>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import uiButton from '@/components/UI/Button.vue';
+
+</script>
+
 
 <style lang="scss" scoped>
 .hero{
@@ -29,29 +38,37 @@
     display: flex;
     flex-direction:column ;
     justify-content: space-between;
+    &_link{
+    background: var(--primary);
+    font-family: var(--satoshi);
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    width: 130px;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+
     &__title{
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--exo2);
       font-weight: 400;
       font-size: 26px;
       color: #22202E;
       text-align: justify;
     }
     &__description{
-      font-family: 'Satoshi';
+      font-family: var(--satoshi);
       font-weight: 400;
       font-size: 18px;
       line-height: 150%;
-      color: #5B5676;
-    }
-    &_link{
-      color: #2A254B;
-      text-decoration: none;
-      background: #F9F9F9;
-      padding: 20px;
-      width: 130px;
-      &:hover{
-        text-decoration: underline;
-      }
+      color: var(--lightGray);
     }
   }
 }

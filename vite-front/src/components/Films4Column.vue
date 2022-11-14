@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Film from '../components/Film.vue'
+import Film from '@/components/Film.vue'
 import {ref} from 'vue'
 
 const films = ref([
@@ -57,11 +57,11 @@ const films = ref([
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
   &_compilation{
-    font-family: 'Exo 2', sans-serif;
+    font-family: var(--exo2);
     text-align: center;
     font-weight: 400;
     font-size: 30px;
-    color: #2A254B;
+    color: var(--primary);
     margin: 40px 0;
   }
   &_container{
