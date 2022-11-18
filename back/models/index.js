@@ -6,6 +6,7 @@ const Producer = require("./Producer");
 const Rating = require("./Rating");
 const User = require('./User')
 const Token = require('./Token')
+const Popular = require('./Popular')
 
 
 
@@ -17,5 +18,6 @@ module.exports = {
   Producer,
   Rating,
   User,
-  Token
+  Token,
+  Popular
 };

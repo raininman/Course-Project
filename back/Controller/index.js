@@ -6,4 +6,5 @@ module.exports = {
   producer: require('./producer.controller'),
   rating: require('./rating.controller'),
   auth: require('./auth.controller'),
+  popular: require('./popular.controller')
 }

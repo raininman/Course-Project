@@ -6,6 +6,7 @@ module.exports={
     'category',
     'producer',
     'rating',
-    "auth"
+    'auth',
+    'popular'
   ]
 }

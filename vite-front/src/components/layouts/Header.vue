@@ -11,10 +11,10 @@
     </div>
     <div class="header_menu">
       <router-link class="header_menu__link"
-      :to="element.path"
-      v-for="(element,i) of menu"
-      :key="i">
-      {{element.name}}
+      v-for="category of categories"
+      :to="category.path"
+      :key="category._id">
+      {{category.title}}
       </router-link>
     </div>
   </header>
@@ -22,25 +22,10 @@
 
 <script setup>
   import {ref} from 'vue'
-
-  const menu=[
-    {
-      name:'French New Wave',
-      path:'/new_wave'
-    },
-    {
-      name:'Independent',
-      path:'/independent'
-    },
-    {
-      name:'New Hollywood',
-      path:'/hollywood'
-    },
-    {
-      name:'German Expressionism ',
-      path:'/expressionism'
-    }
-  ]
+  const props = defineProps({categories:{
+    type:Array,
+    required:true
+  }})
 </script>
 
 
@@ -72,6 +57,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--exo2);
     &__link{
       margin:0 22px;
       font-weight: 400;

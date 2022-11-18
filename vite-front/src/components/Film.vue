@@ -1,9 +1,9 @@
 <template>
   <div class="film">
-    <router-link to="/">
+    <router-link :to="`/${id}`">
       <img :src="img" :alt="title" class="film_img">
     </router-link>
-    <router-link to="/" class="film_title">{{title}}</router-link>
+    <router-link to="/${id}" class="film_title">{{title}}</router-link>
     <span class="film_year">{{year}}</span>
   </div>
 </template>
@@ -22,6 +22,10 @@ const  props = defineProps({
     type:Number,
     required:true
   },
+  id:{
+    type:String,
+    required:true
+  }
 })
 </script>
 

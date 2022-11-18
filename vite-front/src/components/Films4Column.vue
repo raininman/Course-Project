@@ -7,9 +7,10 @@
     <Film
       v-for="film of films"
       :key="film.id"
-      :img="film.img"
+      :img="film.imgURL"
       :title="film.title"
       :year="film.year"
+      :id="film.id"
     />
   </div>
 </div>
@@ -19,33 +20,12 @@
 import Film from '@/components/Film.vue'
 import {ref} from 'vue'
 
-const films = ref([
-  {
-    id:1,
-    img:'/img/Caligari.webp',
-    title:'Кабинет доктора Калигари',
-    year: 1920
-  },
-  {
-    id:2,
-    img:'/img/Apocalypse_Now.webp',
-    title:'Апокалипсис сегодня ',
-    year: 1979
-  },
-  {
-    id:3,
-    img:'/img/Smultronstallet.webp',
-    title:'Земляничная поляна',
-    year: 1957
-  },
-  {
-    id:4,
-    img:'/img/Tengoku_to_jigoku.webp',
-    title:'Рай и ад',
-    year: 1963
-  },
 
-])
+const props = defineProps({
+  films: {
+    required: true,
+  },
+});
 
 </script>
 
