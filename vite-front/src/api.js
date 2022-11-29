@@ -24,4 +24,13 @@ export default {
       console.log(e);
     }
   },
+  async getFilm(id) {
+    try {
+      const response = await HTTP.get(`/film/${id}`);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  },
 };
