@@ -6,7 +6,9 @@ const Film = new Schema({
   year:{type:Number},
   imgURL:{type:String},
   awards:{type:String},
-  rating:{type:String, ref:'Rating'}
+  rating:{type:String, ref:'Rating'},
+  category:{type:String},
+  decade:{type:String}
 })
 
 module.exports = model('Film', Film)

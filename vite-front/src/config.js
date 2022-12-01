@@ -1,3 +1,3 @@
 export default {
-  MOCK: "http://localhost:5000/api/v1",
-};
+  MOCK: 'http://localhost:5000/api/v1',
+}

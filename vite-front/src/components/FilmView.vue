@@ -10,7 +10,7 @@
         <div v-html="film.description"></div>
       </div>
       <div class="film-block__awards" v-if="film.awards != ' '">
-      Награды: {{film.awards}}
+        Награды: {{ film.awards }}
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@ const props = defineProps({
     default: () => {},
     required: true,
   },
-});
+})
 </script>
 
 <style lang="scss" scoped>
