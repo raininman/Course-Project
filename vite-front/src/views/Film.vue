@@ -1,14 +1,14 @@
 <template>
   <FilmView :film="currentFilm" v-if="currentFilm" />
-  <Loader v-if="loading" />
-  <Films @click="reloadPage" :films="popularFilms" v-else />
+  <Loader v-if="loading"/>
+  <Films  :films="popularFilms" v-else  />
 </template>
 
 <script setup>
 import FilmView from '../components/FilmView.vue'
 import Films from '@/components/Films4Column.vue'
 import Loader from '@/components/UI/Loader.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted} from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import api from '@/api.js'
 const route = useRoute()
@@ -17,10 +17,6 @@ const filmId = ref('')
 const currentFilm = ref({})
 const popularFilms = ref([])
 const loading = ref(true)
-const reloadPage = () => {
-  window.location.reload()
-  document.documentElement.scrollTop = 0
-}
 
 onMounted(async () => {
   popularFilms.value = await api.getPopularFilms()

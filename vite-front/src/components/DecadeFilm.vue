@@ -25,10 +25,11 @@ const films = ref([]);
 
 onMounted(async () => {
   films.value = await api.getFilms();
+  console.log(films.value);
   films.value.forEach((film) => {
-    if (film.category == route.params.id) {
+    if (film.decade == route.params.id) {
       filterFilms.value.push(film);
-      console.log(films.value);
+      console.log(filterFilms.value);
     }
   });
 });

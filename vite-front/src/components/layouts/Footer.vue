@@ -5,20 +5,20 @@
         <div class="footer_menu">
           <div class="footer_menu_column">
             <span class="footer_menu_title">Decades</span>
-            <router-link to="/" class="footer_menu_link">2010s</router-link>
-            <router-link to="/" class="footer_menu_link">2000s</router-link>
-            <router-link to="/" class="footer_menu_link">1990s</router-link>
-            <router-link to="/" class="footer_menu_link">1980s</router-link>
-            <router-link to="/" class="footer_menu_link">1970s</router-link>
+            <router-link to="/decade/63891b55abb5ba3600b13055" class="footer_menu_link">2010s</router-link>
+            <router-link to="/decade/63891b63abb5ba3600b13059" class="footer_menu_link">2000s</router-link>
+            <router-link to="/decade/63891ba5c00162a779a5ed9f" class="footer_menu_link">1990s</router-link>
+            <router-link to="/decade/63891baec00162a779a5eda1" class="footer_menu_link">1980s</router-link>
+            <router-link to="/decade/63891bbac00162a779a5eda3" class="footer_menu_link">1970s</router-link>
           </div>
           <div class="footer_menu_column">
             <span class="footer_menu_title">Categories</span>
-            <router-link to="/" class="footer_menu_link"
+            <router-link to="/category/637757e8dd1acf34b9200f74" class="footer_menu_link"
               >German Expressionism</router-link
             >
-            <router-link to="/" class="footer_menu_link">New Hollywood</router-link>
-            <router-link to="/" class="footer_menu_link">French New Wave</router-link>
-            <router-link to="/" class="footer_menu_link">Independent</router-link>
+            <router-link to="/category/637757b1dd1acf34b9200f72" class="footer_menu_link">New Hollywood</router-link>
+            <router-link to="/category/63775751dd1acf34b9200f70" class="footer_menu_link">French New Wave</router-link>
+            <router-link to="/category/63775850dd1acf34b9200f76" class="footer_menu_link">Independent</router-link>
           </div>
           <div class="footer_menu_column">
             <span class="footer_menu_title">Independent</span>

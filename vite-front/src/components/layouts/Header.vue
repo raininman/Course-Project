@@ -4,7 +4,7 @@
       <div class="header_top_left"></div>
       <router-link to="/" class="header_logo">Seb's</router-link>
       <div class="header_top_right">
-        <router-link to="/user" class="header_top_right__user">
+        <router-link to="/user" class="header_top_right__user" >
           <img src="/svg/user_header.svg" alt="user icon" />
         </router-link>
       </div>
@@ -17,6 +17,12 @@
         :key="category._id"
       >
         {{ category.title }}
+      </router-link>
+      <router-link
+        class="header_menu__link"
+        to="/decade"
+      >
+        Декады
       </router-link>
     </div>
   </header>

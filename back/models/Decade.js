@@ -3,6 +3,7 @@ const {Schema, model} = require('mongoose')
 const Decade = new Schema({
   title: {type:String, unique:true},
   description: {type:String},
+  background: {type:String},
   film:{type:String, ref:'Film'}
 })
 

@@ -2,7 +2,6 @@
   <div
     class="category_block"
     :style="`background-image: url('${category.background}')`"
-    :key="category._id"
   ></div>
   <div>
     <div class="category_block_left">{{ category.title }}</div>
@@ -17,7 +16,7 @@ const props = defineProps({
     default: () => {},
     required: true,
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>

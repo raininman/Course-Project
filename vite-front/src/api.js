@@ -42,13 +42,31 @@ export default {
       console.log(e)
     }
   },
-    async getCategory(id) {
-      try {
-        const response = await HTTP.get(`/category/${id}`)
-        console.log(response.data)
-        return response.data
-      } catch (e) {
-        console.log(e)
-      }
+  async getCategory(id) {
+    try {
+      const response = await HTTP.get(`/category/${id}`)
+      console.log(response.data)
+      return response.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async getDecades() {
+    try {
+      const response = await HTTP.get('/decade')
+      console.log(response.data)
+      return response.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async getDecade(id) {
+    try {
+      const response = await HTTP.get(`/decade/${id}`)
+      console.log(response.data)
+      return response.data
+    } catch (e) {
+      console.log(e)
+    }
   },
 }
