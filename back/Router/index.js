@@ -7,6 +7,7 @@ module.exports={
     'producer',
     'rating',
     'auth',
-    'popular'
+    'popular',
+    'user'
   ]
 }

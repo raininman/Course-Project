@@ -10,9 +10,6 @@
         <span class="hero_info__description">― Ingmar Bergman</span>
       </div>
       <div class="hero_info_link">
-        <!-- <uiButton type="link" to="/">
-          Github
-        </uiButton> -->
         <a
           href="https://github.com/raininman/Course-Project"
           class="hero_info_link"
@@ -25,7 +22,6 @@
 </template>
 
 <script setup>
-import uiButton from '@/components/UI/Button.vue'
 </script>
 
 <style lang="scss" scoped>

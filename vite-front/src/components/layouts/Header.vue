@@ -18,18 +18,11 @@
       >
         {{ category.title }}
       </router-link>
-      <router-link
-        class="header_menu__link"
-        to="/decade"
-      >
-        Декады
-      </router-link>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref } from "vue";
 const props = defineProps({
   categories: {
     type: Array,

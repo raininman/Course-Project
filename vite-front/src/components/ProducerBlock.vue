@@ -1,16 +1,12 @@
 <template>
-  <div class="film">
+  <div class="producer">
     <div>
-      <img :src="film.imgURL" :alt="film.title" />
+      <img :src="producer.photoURL" :alt="producer.name" />
     </div>
     <div>
-      <h2 class="film-name">{{ film.title }} ({{ film.year }})</h2>
-      <div class="film-block product-description">
-        <span class="film-block__title">Описание фильма</span>
-        <div v-html="film.description"></div>
-      </div>
-      <div class="film-block__awards" v-if="(film.awards != ' ' && film.awards)">
-        Награды: {{ film.awards }}
+      <h2 class="producer-name">{{ producer.name }}</h2>
+      <div class="producer-block">
+        <div v-html="producer.description"></div>
       </div>
     </div>
   </div>
@@ -18,7 +14,7 @@
 
 <script setup>
 const props = defineProps({
-  film: {
+  producer: {
     type: Object,
     default: () => {},
     required: true,
@@ -27,14 +23,15 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.film {
-  background: var(--lightgray);
+.producer {
+  background: var(--primary);
   padding: 50px 140px;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 500px;
   column-gap: 65px;
   font-family: var(--exo2);
+  color: white;
   &-name {
     margin: 0 0 40px 0;
     font-size: 36px;
