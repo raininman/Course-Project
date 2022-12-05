@@ -7,6 +7,18 @@
       <button class="admin_container_top_add" @click="router.push('changeProducer')">
         Добавить Режиссера
       </button>
+      <button class="admin_container_top_add" @click="router.push('putFilm')">
+        Изменить Фильм
+      </button>
+      <button class="admin_container_top_add" @click="router.push('putProducer')">
+        Изменить Режиссера
+      </button>
+      <button class="admin_container_top_add" @click="router.push('deleteFilm')">
+        Удалить Фильм
+      </button>
+      <button class="admin_container_top_add" @click="router.push('deleteProducer')">
+        Удалить Режиссера
+      </button>
     </div>
 
   </div>

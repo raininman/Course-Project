@@ -9,6 +9,10 @@ import User from '@/views/User.vue'
 import Admin from '@/views/Admin.vue'
 import ChangeFilm from '@/views/ChangeFilm.vue'
 import ChangeProducer from '@/views/ChangeProducer.vue'
+import PutFilm from '@/views/PutFilm.vue'
+import PutProducer from '@/views/PutProducer.vue'
+import DeleteProducer from '@/views/DeleteProducer.vue'
+import DeleteFilm from '@/views/DeleteFilm.vue'
 
 const router = createRouter({
   history:createWebHistory(),
@@ -62,6 +66,26 @@ const router = createRouter({
       path: "/changeProducer",
       name: "ChangeProducer",
       component: ChangeProducer,
+    },
+    {
+      path: "/putFilm",
+      name: "PutFilm",
+      component: PutFilm,
+    },
+    {
+      path: "/putProducer",
+      name: "PutProducer",
+      component: PutProducer,
+    },
+    {
+      path: "/deleteFilm",
+      name: "DeleteFilm",
+      component: DeleteFilm,
+    },
+    {
+      path: "/deleteProducer",
+      name: "DeleteProducer",
+      component: DeleteProducer,
     },
   ]
 })
