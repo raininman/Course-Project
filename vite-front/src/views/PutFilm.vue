@@ -114,6 +114,7 @@ const submit = async () => {
     },
     filmId,
   )
+  document.location.reload()
 }
 
 onMounted(async () => {

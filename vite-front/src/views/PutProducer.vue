@@ -76,7 +76,7 @@ const changeCategory = (id) => {
 const submit = async () => {
   await api.putProducer(
     {
-      name: name,
+    name: name,
     age: age,
     description: description,
     photoURL: photoURL,
@@ -84,6 +84,7 @@ const submit = async () => {
     },
     producerId,
   )
+  document.location.reload()
 }
 
 onMounted(async () => {

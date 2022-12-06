@@ -1,8 +1,24 @@
 <template>
   <div class="film_container">
-    <div class="film_container_producers" v-for="producer in producers">
-      <span class="film_container_name">{{ producer.name }}</span>
-      <button class="film_container_button" @click="getProducer(producer)">
+    <label class="film_container_label">
+      <input
+        class="film_container_input"
+        placeholder="Кинопоиск"
+        v-model="kp"
+      />
+    </label>
+    <label class="film_container_label">
+      <input
+        class="film_container_input"
+        placeholder="IMDB"
+        v-model="imdb"
+      />
+    </label>
+    <div class="film_container_producers" v-for="film in filter">
+      <span class="film_container_name">{{ film.film.title }}</span><br>
+      <span class="film_container_name">Кинопоиск: {{ film.rating.kp }}</span><br>
+      <span class="film_container_name">IMDB: {{ film.rating.imdb }}</span>
+      <button class="film_container_button" @click="ratingFilm(film)">
         &#10003;
       </button>
     </div>
@@ -19,23 +35,41 @@ import { useRoute, useRouter } from 'vue-router'
 import api from '@/api.js'
 const router = useRouter()
 
-const producers = ref([])
+const ratings = ref([])
+const films = ref([])
+const filter = ref([])
 
-let producerId = ''
+let kp = ''
+let imdb = ''
+let ratingId = ''
+let filmId = ''
 
-
-const getProducer = (producer) => {
-  producerId = producer._id
+const ratingFilm = (film) => {
+  ratingId = film.rating._id
+  filmId = film.film._id
 }
 
 const submit = async () => {
-  await api.deleteProducer(producerId)
+  await api.putRating({
+      kp: kp,
+      imdb: imdb,
+      film:filmId
+    },ratingId)
   document.location.reload()
 }
 
 onMounted(async () => {
-  producers.value = await api.getProducers()
+  ratings.value = await api.getRatings()
+  films.value = await api.getFilms()
   document.documentElement.scrollTop = 0
+  ratings.value.forEach(rat=>{
+  films.value.forEach(film=>{
+    if(rat.film == film._id){
+      filter.value.push({film,rating:rat})
+      console.log(film)
+    }
+  })
+})
 })
 </script>
 

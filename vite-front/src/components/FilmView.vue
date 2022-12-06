@@ -12,11 +12,23 @@
       <div class="film-block__awards" v-if="(film.awards != ' ' && film.awards)">
         Награды: {{ film.awards }}
       </div>
+      <div class="film-block__awards" v-if="(film.awards != ' ' && film.awards)">
+        Кинопоиск: {{ rating.kp }}<br>
+        IMDB: {{ rating.imdb }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+import api from "@/api.js";
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+
+const ratings = ref([])
+const rating = ref({})
 const props = defineProps({
   film: {
     type: Object,
@@ -24,6 +36,15 @@ const props = defineProps({
     required: true,
   },
 })
+onMounted(async () => {
+  ratings.value = await api.getRatings();
+  ratings.value.forEach((rat) => {
+    if (rat.film == route.params.id) {
+      rating.value = rat
+      console.log(rating.value)
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -41,6 +62,9 @@ const props = defineProps({
   }
   &-block {
     margin-bottom: 40px;
+    &__awards{
+      margin-bottom: 40px;
+    }
     &__title {
       margin-top: 20px;
       display: block;

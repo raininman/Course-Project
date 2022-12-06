@@ -67,6 +67,7 @@ const submit = async () => {
     photoURL: photoURL,
     category: categoryId,
   })
+  document.location.reload()
 }
 
 onMounted(async () => {

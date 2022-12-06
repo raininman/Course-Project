@@ -1,8 +1,8 @@
 <template>
   <div class="film_container">
-    <div class="film_container_producers" v-for="producer in producers">
-      <span class="film_container_name">{{ producer.name }}</span>
-      <button class="film_container_button" @click="getProducer(producer)">
+    <div class="film_container_producers" v-for="film in filter">
+      <span class="film_container_name">{{ film.film.title }}</span>
+      <button class="film_container_button" @click="ratingFilm(film.rating)">
         &#10003;
       </button>
     </div>
@@ -19,23 +19,33 @@ import { useRoute, useRouter } from 'vue-router'
 import api from '@/api.js'
 const router = useRouter()
 
-const producers = ref([])
+const ratings = ref([])
+const films = ref([])
+const filter = ref([])
 
-let producerId = ''
+let ratingId = ''
 
-
-const getProducer = (producer) => {
-  producerId = producer._id
+const ratingFilm = (...rating) => {
+  ratingId = rating
 }
 
 const submit = async () => {
-  await api.deleteProducer(producerId)
+  await api.deleteRating(ratingId)
   document.location.reload()
 }
 
 onMounted(async () => {
-  producers.value = await api.getProducers()
+  ratings.value = await api.getRatings()
+  films.value = await api.getFilms()
   document.documentElement.scrollTop = 0
+  ratings.value.forEach(rat=>{
+  films.value.forEach(film=>{
+    if(rat.film == film._id){
+      filter.value.push({film,rating:rat._id})
+      console.log(film)
+    }
+  })
+})
 })
 </script>
 

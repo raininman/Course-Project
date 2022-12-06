@@ -8,11 +8,14 @@ import Independent from '@/views/Independent.vue'
 import User from '@/views/User.vue'
 import Admin from '@/views/Admin.vue'
 import ChangeFilm from '@/views/ChangeFilm.vue'
+import ChangeRating from '@/views/ChangeRating.vue'
 import ChangeProducer from '@/views/ChangeProducer.vue'
 import PutFilm from '@/views/PutFilm.vue'
+import PutRating from '@/views/PutRating.vue'
 import PutProducer from '@/views/PutProducer.vue'
 import DeleteProducer from '@/views/DeleteProducer.vue'
 import DeleteFilm from '@/views/DeleteFilm.vue'
+import DeleteRating from '@/views/DeleteRating.vue'
 
 const router = createRouter({
   history:createWebHistory(),
@@ -63,6 +66,11 @@ const router = createRouter({
       component: ChangeFilm,
     },
     {
+      path: "/changeRating",
+      name: "ChangeRating",
+      component: ChangeRating,
+    },
+    {
       path: "/changeProducer",
       name: "ChangeProducer",
       component: ChangeProducer,
@@ -73,6 +81,11 @@ const router = createRouter({
       component: PutFilm,
     },
     {
+      path: "/putRating",
+      name: "PutRating",
+      component: PutRating,
+    },
+    {
       path: "/putProducer",
       name: "PutProducer",
       component: PutProducer,
@@ -81,6 +94,11 @@ const router = createRouter({
       path: "/deleteFilm",
       name: "DeleteFilm",
       component: DeleteFilm,
+    },
+    {
+      path: "/deleteRating",
+      name: "DeleteRating",
+      component: DeleteRating,
     },
     {
       path: "/deleteProducer",

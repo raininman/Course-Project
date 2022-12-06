@@ -98,6 +98,7 @@ const submit = async () => {
     producer: producerId,
     country: countryId,
   })
+  document.location.reload()
 }
 
 onMounted(async () => {

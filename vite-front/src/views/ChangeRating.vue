@@ -1,8 +1,22 @@
 <template>
   <div class="film_container">
-    <div class="film_container_producers" v-for="producer in producers">
-      <span class="film_container_name">{{ producer.name }}</span>
-      <button class="film_container_button" @click="getProducer(producer)">
+    <label class="film_container_label">
+      <input
+        class="film_container_input"
+        placeholder="Кинопоиск"
+        v-model="kp"
+      />
+    </label>
+    <label class="film_container_label">
+      <input
+        class="film_container_input"
+        placeholder="IMDB"
+        v-model="imdb"
+      />
+    </label>
+    <div class="film_container_producers" v-for="film in films">
+      <span class="film_container_name">{{ film.title }}</span>
+      <button class="film_container_button" @click="changeFilm(film)">
         &#10003;
       </button>
     </div>
@@ -19,22 +33,27 @@ import { useRoute, useRouter } from 'vue-router'
 import api from '@/api.js'
 const router = useRouter()
 
-const producers = ref([])
+const films = ref([])
 
-let producerId = ''
+let filmId = ''
+let kp = ''
+let imdb = ''
 
-
-const getProducer = (producer) => {
-  producerId = producer._id
+const changeFilm = (id) => {
+  filmId = id
 }
 
 const submit = async () => {
-  await api.deleteProducer(producerId)
+  await api.postRating({
+    kp: kp,
+    imdb: imdb,
+    film: filmId,
+  })
   document.location.reload()
 }
 
 onMounted(async () => {
-  producers.value = await api.getProducers()
+  films.value = await api.getFilms()
   document.documentElement.scrollTop = 0
 })
 </script>
@@ -74,7 +93,6 @@ onMounted(async () => {
     color: white;
     font-size: 24px;
   }
-
   &_producers {
     background-color: var(--primary);
     color: white;

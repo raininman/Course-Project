@@ -30,6 +30,7 @@ const getFilm = (film) => {
 
 const submit = async () => {
   await api.deleteFilm(filmId)
+  document.location.reload()
 }
 
 onMounted(async () => {

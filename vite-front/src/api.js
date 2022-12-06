@@ -69,6 +69,15 @@ export default {
       console.log(e)
     }
   },
+  async getRatings() {
+    try {
+      const response = await HTTP.get('/rating')
+      console.log(response.data)
+      return response.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
   async getProducers() {
     try {
       const response = await HTTP.get('/producer')
