@@ -1,14 +1,14 @@
 <template>
   <div class="film_container">
     <label class="film_container_label">
-      <input
-        class="film_container_input"
-        placeholder="Имя"
-        v-model="name"
-      />
+      <input class="film_container_input" placeholder="Имя" v-model="name" />
     </label>
     <label class="film_container_label">
-      <input class="film_container_input" placeholder="Годы жизни" v-model="age" />
+      <input
+        class="film_container_input"
+        placeholder="Годы жизни"
+        v-model="age"
+      />
     </label>
     <label class="film_container_label">
       <input
@@ -24,15 +24,16 @@
         v-model="photoURL"
       />
     </label>
-
-    <div class="film_container_producers" v-for="producer in producers">
-      <span class="film_container_name">{{ producer.name }}</span>
-      <button
-        class="film_container_button"
-        @click="changeProducer(producer._id)"
-      >
-        &#10003;
-      </button>
+    <div class="grid">
+      <div class="film_container_producers" v-for="producer in producers">
+        <span class="film_container_name">{{ producer.name }}</span>
+        <button
+          class="film_container_button"
+          @click="changeProducer(producer._id)"
+        >
+          &#10003;
+        </button>
+      </div>
     </div>
     <div class="film_container_producers" v-for="category in categories">
       <span class="film_container_name">{{ category.title }}</span>
@@ -56,8 +57,8 @@ import { useRoute, useRouter } from 'vue-router'
 import api from '@/api.js'
 const router = useRouter()
 
-const categories= ref([])
-const producers= ref([])
+const categories = ref([])
+const producers = ref([])
 
 let producerId = ''
 let categoryId = ''
@@ -76,11 +77,11 @@ const changeCategory = (id) => {
 const submit = async () => {
   await api.putProducer(
     {
-    name: name,
-    age: age,
-    description: description,
-    photoURL: photoURL,
-    category: categoryId,
+      name: name,
+      age: age,
+      description: description,
+      photoURL: photoURL,
+      category: categoryId,
     },
     producerId,
   )
@@ -136,6 +137,8 @@ onMounted(async () => {
     width: 400px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_decades {
     background-color: var(--primary);
@@ -143,6 +146,8 @@ onMounted(async () => {
     width: 200px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_button {
     margin-left: 10px;
@@ -154,6 +159,9 @@ onMounted(async () => {
     text-align: center;
     &:hover {
       background-color: lightblue;
+    }
+    &:focus {
+      background-color: green;
     }
   }
   &_submit {
@@ -181,5 +189,10 @@ onMounted(async () => {
       text-decoration: underline;
     }
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 50px;
 }
 </style>

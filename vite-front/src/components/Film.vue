@@ -34,10 +34,11 @@ const props = defineProps({
 <style lang="scss" scoped>
 .film {
   font-family: var(--exo2);
+  margin-bottom: 30px;
   &_img {
     display: block;
-    height: 450px;
-    width: 300px;
+    height: 400px;
+    width: 270px;
     margin-bottom: 24px;
   }
   &_title {

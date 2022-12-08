@@ -1,7 +1,7 @@
 <template>
   <div class="film">
     <div>
-      <img :src="film.imgURL" :alt="film.title" />
+      <img height="450" width="300" :src="film.imgURL" :alt="film.title" />
     </div>
     <div>
       <h2 class="film-name">{{ film.title }} ({{ film.year }})</h2>
@@ -9,11 +9,11 @@
         <span class="film-block__title">Описание фильма</span>
         <div v-html="film.description"></div>
       </div>
-      <div class="film-block__awards" v-if="(film.awards != ' ' && film.awards)">
+      <div class="film-block__awards" v-if="film.awards != ' ' && film.awards">
         Награды: {{ film.awards }}
       </div>
-      <div class="film-block__awards" v-if="(film.awards != ' ' && film.awards)">
-        Кинопоиск: {{ rating.kp }}<br>
+      <div class="film-block__awards">
+        Кинопоиск: {{ rating.kp }}<br />
         IMDB: {{ rating.imdb }}
       </div>
     </div>
@@ -21,11 +21,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import api from "@/api.js";
-import { useRoute, useRouter } from "vue-router";
+import { ref, onMounted } from 'vue'
+import api from '@/api.js'
+import { useRoute, useRouter } from 'vue-router'
 
-const route = useRoute();
+const route = useRoute()
 
 const ratings = ref([])
 const rating = ref({})
@@ -37,14 +37,14 @@ const props = defineProps({
   },
 })
 onMounted(async () => {
-  ratings.value = await api.getRatings();
+  ratings.value = await api.getRatings()
   ratings.value.forEach((rat) => {
     if (rat.film == route.params.id) {
       rating.value = rat
       console.log(rating.value)
     }
-  });
-});
+  })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +53,7 @@ onMounted(async () => {
   padding: 50px 140px;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 500px;
+  grid-template-columns: 500px 1fr;
   column-gap: 65px;
   font-family: var(--exo2);
   &-name {
@@ -62,7 +62,7 @@ onMounted(async () => {
   }
   &-block {
     margin-bottom: 40px;
-    &__awards{
+    &__awards {
       margin-bottom: 40px;
     }
     &__title {

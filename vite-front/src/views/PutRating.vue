@@ -8,19 +8,19 @@
       />
     </label>
     <label class="film_container_label">
-      <input
-        class="film_container_input"
-        placeholder="IMDB"
-        v-model="imdb"
-      />
+      <input class="film_container_input" placeholder="IMDB" v-model="imdb" />
     </label>
-    <div class="film_container_producers" v-for="film in filter">
-      <span class="film_container_name">{{ film.film.title }}</span><br>
-      <span class="film_container_name">Кинопоиск: {{ film.rating.kp }}</span><br>
-      <span class="film_container_name">IMDB: {{ film.rating.imdb }}</span>
-      <button class="film_container_button" @click="ratingFilm(film)">
-        &#10003;
-      </button>
+    <div class="grid">
+      <div class="film_container_producers" v-for="film in filter">
+        <span class="film_container_name">{{ film.film.title }}</span
+        ><br />
+        <span class="film_container_name">Кинопоиск: {{ film.rating.kp }}</span
+        ><br />
+        <span class="film_container_name">IMDB: {{ film.rating.imdb }}</span>
+        <button class="film_container_button" @click="ratingFilm(film)">
+          &#10003;
+        </button>
+      </div>
     </div>
     <button class="film_container_submit" @click="submit">Отправить</button>
     <button class="film_container_back" @click="router.push('admin')">
@@ -50,11 +50,14 @@ const ratingFilm = (film) => {
 }
 
 const submit = async () => {
-  await api.putRating({
+  await api.putRating(
+    {
       kp: kp,
       imdb: imdb,
-      film:filmId
-    },ratingId)
+      film: filmId,
+    },
+    ratingId,
+  )
   document.location.reload()
 }
 
@@ -62,14 +65,14 @@ onMounted(async () => {
   ratings.value = await api.getRatings()
   films.value = await api.getFilms()
   document.documentElement.scrollTop = 0
-  ratings.value.forEach(rat=>{
-  films.value.forEach(film=>{
-    if(rat.film == film._id){
-      filter.value.push({film,rating:rat})
-      console.log(film)
-    }
+  ratings.value.forEach((rat) => {
+    films.value.forEach((film) => {
+      if (rat.film == film._id) {
+        filter.value.push({ film, rating: rat })
+        console.log(film)
+      }
+    })
   })
-})
 })
 </script>
 
@@ -115,6 +118,8 @@ onMounted(async () => {
     width: 400px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_decades {
     background-color: var(--primary);
@@ -122,6 +127,8 @@ onMounted(async () => {
     width: 200px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_button {
     margin-left: 10px;
@@ -133,6 +140,9 @@ onMounted(async () => {
     text-align: center;
     &:hover {
       background-color: lightblue;
+    }
+    &:focus {
+      background-color: green;
     }
   }
   &_submit {
@@ -160,5 +170,9 @@ onMounted(async () => {
       text-decoration: underline;
     }
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

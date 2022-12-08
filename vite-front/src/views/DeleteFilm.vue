@@ -1,10 +1,12 @@
 <template>
   <div class="film_container">
-    <div class="film_container_producers" v-for="film in films">
-      <span class="film_container_name">{{ film.title }}</span>
-      <button class="film_container_button" @click="getFilm(film)">
-        &#10003;
-      </button>
+    <div class="grid">
+      <div class="film_container_producers" v-for="film in films">
+        <span class="film_container_name">{{ film.title }}</span>
+        <button class="film_container_button" @click="getFilm(film)">
+          &#10003;
+        </button>
+      </div>
     </div>
     <button class="film_container_submit" @click="submit">Отправить</button>
     <button class="film_container_back" @click="router.push('admin')">
@@ -22,7 +24,6 @@ const router = useRouter()
 const films = ref([])
 
 let filmId = ''
-
 
 const getFilm = (film) => {
   filmId = film._id
@@ -81,6 +82,8 @@ onMounted(async () => {
     width: 400px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_decades {
     background-color: var(--primary);
@@ -88,6 +91,8 @@ onMounted(async () => {
     width: 200px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_button {
     margin-left: 10px;
@@ -99,6 +104,9 @@ onMounted(async () => {
     text-align: center;
     &:hover {
       background-color: lightblue;
+    }
+    &:focus {
+      background-color: green;
     }
   }
   &_submit {
@@ -126,5 +134,9 @@ onMounted(async () => {
       text-decoration: underline;
     }
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

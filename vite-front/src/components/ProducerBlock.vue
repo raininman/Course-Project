@@ -1,10 +1,16 @@
 <template>
   <div class="producer">
     <div>
-      <img :src="producer.photoURL" :alt="producer.name" />
+      <img
+        height="450"
+        width="300"
+        :src="producer.photoURL"
+        :alt="producer.name"
+      />
     </div>
     <div>
       <h2 class="producer-name">{{ producer.name }}</h2>
+      {{ producer.age }}
       <div class="producer-block">
         <div v-html="producer.description"></div>
       </div>
@@ -33,11 +39,10 @@ const props = defineProps({
   font-family: var(--exo2);
   color: white;
   &-name {
-    margin: 0 0 40px 0;
     font-size: 36px;
   }
   &-block {
-    margin-bottom: 40px;
+    margin: 40px 0;
     &__title {
       margin-top: 20px;
       display: block;

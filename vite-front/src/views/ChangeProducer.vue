@@ -1,14 +1,14 @@
 <template>
   <div class="film_container">
     <label class="film_container_label">
-      <input
-        class="film_container_input"
-        placeholder="Имя"
-        v-model="name"
-      />
+      <input class="film_container_input" placeholder="Имя" v-model="name" />
     </label>
     <label class="film_container_label">
-      <input class="film_container_input" placeholder="Годы жизни" v-model="age" />
+      <input
+        class="film_container_input"
+        placeholder="Годы жизни"
+        v-model="age"
+      />
     </label>
     <label class="film_container_label">
       <input
@@ -47,7 +47,6 @@ import api from '@/api.js'
 const router = useRouter()
 
 const categories = ref([])
-
 
 let categoryId = ''
 let photoURL = ''
@@ -117,6 +116,8 @@ onMounted(async () => {
     width: 400px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_decades {
     background-color: var(--primary);
@@ -135,6 +136,9 @@ onMounted(async () => {
     text-align: center;
     &:hover {
       background-color: lightblue;
+    }
+    &:focus {
+      background-color: green;
     }
   }
   &_submit {

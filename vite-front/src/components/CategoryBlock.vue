@@ -47,7 +47,7 @@ const props = defineProps({
     width: 900px;
     position: absolute;
     top: 100px;
-    right: 50px;
+    right: 80px;
     font-size: 24px;
     text-align: justify;
   }

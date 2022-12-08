@@ -31,20 +31,24 @@
         v-model="awards"
       />
     </label>
-    <div class="film_container_producers" v-for="film in films">
-      <span class="film_container_name">{{ film.title }}</span>
-      <button class="film_container_button" @click="getFilm(film)">
-        &#10003;
-      </button>
+    <div class="grid">
+      <div class="film_container_producers" v-for="film in films">
+        <span class="film_container_name">{{ film.title }}</span>
+        <button class="film_container_button" @click="getFilm(film)">
+          &#10003;
+        </button>
+      </div>
     </div>
-    <div class="film_container_producers" v-for="producer in producers">
-      <span class="film_container_name">{{ producer.name }}</span>
-      <button
-        class="film_container_button"
-        @click="changeProducer(producer._id)"
-      >
-        &#10003;
-      </button>
+    <div class="grid">
+      <div class="film_container_producers" v-for="producer in producers">
+        <span class="film_container_name">{{ producer.name }}</span>
+        <button
+          class="film_container_button"
+          @click="changeProducer(producer._id)"
+        >
+          &#10003;
+        </button>
+      </div>
     </div>
     <div class="film_container_decades" v-for="decade in decades">
       <span class="film_container_name">{{ decade.title }}</span>
@@ -104,13 +108,14 @@ const submit = async () => {
     {
       title: title,
       year: year,
+      awards: awards,
       description: description,
       imgURL: imgURL,
       decade: decadeId,
       producer: producerId,
       country: countryId,
       producer: producerId,
-    country: countryId,
+      country: countryId,
     },
     filmId,
   )
@@ -168,6 +173,8 @@ onMounted(async () => {
     width: 400px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_decades {
     background-color: var(--primary);
@@ -175,6 +182,8 @@ onMounted(async () => {
     width: 200px;
     margin: 20px auto;
     font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 10px;
   }
   &_button {
     margin-left: 10px;
@@ -186,6 +195,9 @@ onMounted(async () => {
     text-align: center;
     &:hover {
       background-color: lightblue;
+    }
+    &:focus {
+      background-color: green;
     }
   }
   &_submit {
@@ -213,5 +225,10 @@ onMounted(async () => {
       text-decoration: underline;
     }
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 50px;
 }
 </style>

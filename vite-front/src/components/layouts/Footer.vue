@@ -25,11 +25,6 @@
               class="footer_menu_link"
               >1980-е</router-link
             >
-            <router-link
-              to="/category/decade/63891bbac00162a779a5eda3"
-              class="footer_menu_link"
-              >1970-е</router-link
-            >
           </div>
           <div class="footer_menu_column">
             <span class="footer_menu_title">Направления</span>

@@ -30,10 +30,10 @@ const props = defineProps({
 .producer {
   font-family: var(--exo2);
   &_img {
+    margin: 24px auto;
     display: block;
     height: 300px;
     width: 200px;
-    margin-bottom: 24px;
   }
   &_title {
     display: block;
@@ -42,6 +42,8 @@ const props = defineProps({
     color: var(--primary);
     text-decoration: none;
     line-height: 140%;
+    text-align: center;
+    margin-bottom: 30px;
     &:hover {
       text-decoration: underline;
     }
